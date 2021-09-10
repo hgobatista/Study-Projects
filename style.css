@@ -1,0 +1,142 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: #777;
+  /*padding: 30px;*/
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.815),
+      rgba(40, 180, 133, 0.659)
+    ),
+    url(/img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.logo {
+  height: 35px;
+}
+.text-box {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+
+  backface-visibility: hidden;
+  /* Às vezes acontece um bug depois da animação
+  do item subir, esse backface serve para arrumar isso */
+
+  margin-bottom: 60px;
+}
+.heading-primary-main {
+  display: block;
+  font-size: 1.7em;
+  line-height: 1.7em;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-iteration-count: ease-out;
+}
+.heading-primary-sub {
+  display: block;
+  font-size: 0.7em;
+  line-height: 0.7em;
+  font-weight: 300;
+  letter-spacing: 0.33em;
+
+  animation: moveInRight 1s ease-out;
+}
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 20px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.15s ease-out;
+  position: relative;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+.btn-animated {
+  animation: moveInDown 0.7s ease-out 0.25s;
+  animation-fill-mode: backwards;
+}
